@@ -10,3 +10,9 @@
     @apply font-KumbhSans
   }
 }
+
+@layer components{
+  .containerNavBar{
+    @apply flex items-center
+  }
+}

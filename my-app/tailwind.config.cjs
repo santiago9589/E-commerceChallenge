@@ -19,6 +19,12 @@ module.exports = {
       fontFamily: {
         'KumbhSans': ['Kumbh Sans', 'sans-serif']
       },
+      // gridTemplateColumns:{
+      //   "2x":"repeat(auto-fit, minmax(350px, 1fr))"
+      // },
+      // gridTemplateRows:{
+      //   "2x":"repeat(auto-fit, minmax(550px, 1fr))"
+      // }
     },
   },
   plugins: [],
