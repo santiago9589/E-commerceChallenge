@@ -1,12 +1,12 @@
+import HomePage from "./pages/home/home.page"
 
 
 function App() {
   
-
   return (
-    <div>
-      <h1 className="underline">fdsfsdfsd</h1>
-    </div>
+    <main className="container mx-auto">
+      <HomePage/>
+    </main>
   )
 }
 
