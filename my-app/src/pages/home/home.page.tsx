@@ -1,18 +1,32 @@
-import React from 'react'
 import NavbarComponent from '../../components/NavbarComponent.components'
 import SubtitleComponent from '../../components/SubtitleComponent'
 import TitleComponent from '../../components/TitleComponent'
-import productImagen1 from "../../assets/image-product-1.jpg"
+import PhotoComponentSmall from '../../components/PhotoComponentSmall'
+import { usePhotos } from '../../hooks/hooksPhotos'
+
 
 const HomePage = () => {
+
+ 
+  const [photos,setPhotos,photoSelected,setPhotoSelected] = usePhotos()
+
   return (
     <>
       <NavbarComponent />
       <section className='flex h-5/6 p-4 box-border gap-6 w-full'>
-        <section className='flex-1  border-red-500 p-4 pt-12 box-border flex justify-center border-2 '>
-          
-            <img src={productImagen1} alt="product" className='w-2/3 h-2/3 rounded-lg'/>
-        
+        <section className='flex-1 items-center flex-col border-red-500 p-4 pt-8 box-border flex justify-center border-2 space-y-6'>
+          <img src={photoSelected.large} alt="product" className='w-2/3 h-2/3 rounded-lg' />
+          <section className='flex space-x-7'>
+
+            {
+              photos.map((photo) => {
+                return (
+                  <PhotoComponentSmall photo={photo} selected={photoSelected === photo} setSelect={setPhotoSelected} />
+                )
+              })
+            }
+
+          </section>
         </section>
         <section className='flex-1 border-2 border-red-500 flex flex-col justify-center items-start p-8'>
           <SubtitleComponent subtitle='Sneaker Company' />

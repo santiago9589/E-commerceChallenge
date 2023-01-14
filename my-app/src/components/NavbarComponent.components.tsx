@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg"
 import cart from "../assets/icon-cart.svg"
 import avatar from "../assets/image-avatar.png"
 import NavbarContainerComponents from './NavbarContainerComponents'
+import ModalContainer from './ModalContainer'
 
 const NavbarComponent = () => {
 
@@ -25,6 +26,13 @@ const NavbarComponent = () => {
                 <img src={cart} alt="cart" className='w-4 h-4 mr-8' />
                 <img src={avatar} alt="avatar" className='w-10 h-10' />
             </NavbarContainerComponents>
+            <ModalContainer>
+                <section className='absolute w-screen h-screen'>
+                    <section className='absolute w-screen h-screen right-0 top-5'>
+                        <h1>ghjgjhg</h1>
+                    </section>
+                </section>
+            </ModalContainer>
         </nav>
     )
 }
