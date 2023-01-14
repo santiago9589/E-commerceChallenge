@@ -5,10 +5,10 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    screens: {
-      'sm': '375px',
-      'xl': '1200px',
-    },
+    // screens: {
+    //   // 'sm': '375px',
+    //   // 'xl': '1200px',
+    // },
     extend:
     {
       colors: {

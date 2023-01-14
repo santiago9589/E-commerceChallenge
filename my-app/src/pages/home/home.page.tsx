@@ -14,7 +14,7 @@ const HomePage = () => {
     <>
       <NavbarComponent />
       <section className='flex h-5/6 p-4 box-border gap-6 w-full'>
-        <section className='flex-1 items-center flex-col border-red-500 p-4 pt-8 box-border flex justify-center border-2 space-y-6'>
+        <section className='flex-1 items-center flex-col p-4 pt-8 box-border flex justify-center space-y-6'>
           <img src={photoSelected.large} alt="product" className='w-2/3 h-2/3 rounded-lg' />
           <section className='flex space-x-7'>
 
@@ -28,7 +28,7 @@ const HomePage = () => {
 
           </section>
         </section>
-        <section className='flex-1 border-2 border-red-500 flex flex-col justify-center items-start p-8'>
+        <section className='flex-1 flex flex-col justify-center items-start p-8'>
           <SubtitleComponent subtitle='Sneaker Company' />
           <TitleComponent title='Fall Limited Edition Sneakers' />
           <p className='flex text-lg'>
@@ -46,10 +46,10 @@ const HomePage = () => {
             </section>
           </section>
           <section className='w-full flex items-start space-x-2 mt-4'>
-            <section className='bg-slate-50 rounded-lg p-2 w-1/3 border-2 border-red-500 flex items-center justify-around'>
+            <section className='bg-slate-50 rounded-lg p-2 w-1/3 flex items-center justify-around'>
               <button className='text-primary-500 text-xl'>-</button><span>0</span><button className='text-primary-500 text-xl'>+</button>
             </section>
-            <section className='w-1/2 border-2 border-red-500'>
+            <section className='w-1/2'>
               <button className='bg-primary-500 p-2 w-full rounded-lg text-lg'>Add to Card</button>
             </section>
           </section>

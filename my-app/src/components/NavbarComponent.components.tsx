@@ -26,13 +26,6 @@ const NavbarComponent = () => {
                 <img src={cart} alt="cart" className='w-4 h-4 mr-8' />
                 <img src={avatar} alt="avatar" className='w-10 h-10' />
             </NavbarContainerComponents>
-            <ModalContainer>
-                <section className='absolute w-screen h-screen'>
-                    <section className='absolute w-screen h-screen right-0 top-5'>
-                        <h1>ghjgjhg</h1>
-                    </section>
-                </section>
-            </ModalContainer>
         </nav>
     )
 }
