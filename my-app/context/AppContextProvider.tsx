@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { api } from '../src/api/product'
-import { Product } from '../types/Product'
-import { ProductRequest } from '../types/ProductRequest'
+import React from 'react'
+import { useCart } from '../src/hooks/useCart'
+import { useProductView } from '../src/hooks/useProductView'
 import { AppContext, ContextProps } from "./AppContext"
 
 interface props {
@@ -10,25 +9,11 @@ interface props {
 
 const AppContextProvider = ({ children }: props) => {
 
-    const [productView, setProductView] = useState<ProductRequest>({
-        Provider: "",
-        title: "",
-        priceOff: 0,
-        priceSell: 0,
-        description: ""
-    })
-    const [cart, setCart] = useState<Product[]>([])
+    
+    const [productView,setProductView] = useProductView()
 
-    const handleCart = (newProduct: Product) => {
-        if (!newProduct) return
-        setCart([...cart, newProduct])
-    }
-
-    useEffect(() => {
-        api.getProduct().then((response) => {
-            setProductView(response)
-        })
-    })
+    const [cart,setCart,handleCart,deleteCart,handleTotal] = useCart()
+  
 
     const PropsContext: ContextProps = {
         state: {
@@ -36,7 +21,10 @@ const AppContextProvider = ({ children }: props) => {
             productView
         },
         actions: {
-            handleCart
+            handleCart,
+            deleteCart,
+            handleTotal,
+            setCart
         }
     }
 

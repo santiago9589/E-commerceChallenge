@@ -5,7 +5,7 @@ import cart from "../assets/icon-cart.svg"
 import avatar from "../assets/image-avatar.png"
 import NavbarContainerComponents from './NavbarContainerComponents'
 import CartBasketComponent from './CartBasketComponent'
-import { useBar } from '../hooks/hooksBarItems'
+import { useBar } from '../hooks/useBarItems'
 import { AppContext } from '../../context/AppContext'
 
 const NavbarComponent = () => {

@@ -2,22 +2,35 @@ import NavbarComponent from '../../components/NavbarComponent.components'
 import SubtitleComponent from '../../components/SubtitleComponent'
 import TitleComponent from '../../components/TitleComponent'
 import PhotoComponentSmall from '../../components/PhotoComponentSmall'
-import { usePhotos } from '../../hooks/hooksPhotos'
-import { useContext, useMemo} from 'react'
+import { usePhotos } from '../../hooks/usePhotos'
+import { useContext, useMemo } from 'react'
 import { AppContext } from '../../../context/AppContext'
 import { useQuantity } from '../../hooks/useQuantity'
+import { v4 as uuidv4 } from 'uuid';
 
 
 const HomePage = () => {
 
 
   const [photos, setPhotos, photoSelected, setPhotoSelected] = usePhotos()
-  const [quantityProduct,handleQuantity] = useQuantity()
-
+  const [quantityProduct, handleQuantity,setQuantityProduct] = useQuantity()
   const { state, actions } = useContext(AppContext)
+  
   const priceResult = useMemo(() => {
     return ((state.productView.priceSell * state.productView.priceOff * 100) / 100)
   }, [state.productView])
+
+  const handleAdd = () => {
+    if (quantityProduct === 0) return
+    actions.handleCart({
+      name: state.productView.title,
+      price: priceResult,
+      quantity: quantityProduct,
+      imgProduct: photoSelected.small,
+      id:uuidv4()
+    })
+    setQuantityProduct(0)
+  }
 
   return (
     <>
@@ -45,7 +58,7 @@ const HomePage = () => {
             <section className='flex flex-col mt-4 items-start'>
               <section className='flex items-center'>
                 <p className='font-bold text-xl mr-2'>{`${priceResult.toLocaleString("es-AR", { style: "currency", currency: "ARS" })}`}</p>
-                <p className='font-semibold text-lg bg-primary-500 p-2 rounded-full'>{(state.productView.priceOff).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 0 })}</p>
+                <p className='font-semibold text-lg bg-primary-500 p-1 rounded-full text-white'>{(state.productView.priceOff).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 0 })}</p>
               </section>
               <p className='opacity-50  line-through'>{(state.productView.priceSell.toLocaleString("es-AR", { style: "currency", currency: "ARS" }))} </p>
             </section>
@@ -56,12 +69,7 @@ const HomePage = () => {
             </section>
             <section className='w-1/2'>
               <button className='text-white font-bold capitalize bg-primary-500 p-2 w-full rounded-lg text-lg' onClick={() => {
-                actions.handleCart({
-                  name: state.productView.title,
-                  price: priceResult,
-                  quantity: quantityProduct,
-                  imgProduct: photoSelected.small
-                })
+                handleAdd()
               }}>add to card</button>
             </section>
           </section>

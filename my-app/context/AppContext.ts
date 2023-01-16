@@ -9,6 +9,9 @@ export interface ContextProps{
     },
     actions:{
         handleCart:(newProduct:Product)=>void
+        deleteCart:(Product:Product)=>void
+        handleTotal: number
+        setCart:React.Dispatch<React.SetStateAction<Product[]>>
     }
 }
 

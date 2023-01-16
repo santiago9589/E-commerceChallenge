@@ -3,4 +3,5 @@ export interface Product {
     price: number
     quantity: number
     imgProduct: string
+    id:string
 }

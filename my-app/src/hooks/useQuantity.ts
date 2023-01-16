@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const useQuantity = ():[number,(number: number) => void] =>{
+export const useQuantity = ():[number,(number: number) => void,React.Dispatch<React.SetStateAction<number>>] =>{
     const [quantityProduct, setQuantityProduct] = useState<number>(0)
 
   const handleQuantity = (number: number) => {
@@ -11,5 +11,5 @@ export const useQuantity = ():[number,(number: number) => void] =>{
     }
   }
 
-  return [quantityProduct,handleQuantity]
+  return [quantityProduct,handleQuantity,setQuantityProduct]
 }
