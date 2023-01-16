@@ -35,7 +35,7 @@ const HomePage = () => {
   return (
     <>
       <NavbarComponent />
-      <section className='flex h-5/6 p-4 box-border gap-6 w-full'>
+      <section className='h-full flex flex-col sm:flex-row sm:h-5/6 p-4 box-border gap-6 w-full'>
         <section className='flex-1 items-center flex-col p-4 pt-8 box-border flex justify-center space-y-6'>
           <img src={photoSelected.large} alt="product" className='w-2/3 h-2/3 rounded-lg' />
           <section className='flex space-x-7'>

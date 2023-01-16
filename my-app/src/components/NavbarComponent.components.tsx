@@ -16,9 +16,9 @@ const NavbarComponent = () => {
     
     return (
         <nav className='flex justify-between items-center  border-b-2 border-slate-200 w-full p-2'>
-            <NavbarContainerComponents classProps='grow'>
+            <NavbarContainerComponents>
                 <img src={logo} alt="logo" />
-                <ul className='containerNavBar ml-12'>
+                <ul className='hidden sm:flex sm:items-center sm:ml-12'>
                     {bar.map((bar,index) => {
                         return (
                             <NavbarElement key={index}  name={bar} isSelected={barItem === bar} setSelected={setBarItem} />
