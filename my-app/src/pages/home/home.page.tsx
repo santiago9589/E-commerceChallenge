@@ -7,15 +7,20 @@ import { useContext, useMemo } from 'react'
 import { AppContext } from '../../../context/AppContext'
 import { useQuantity } from '../../hooks/useQuantity'
 import { v4 as uuidv4 } from 'uuid';
+import { motion } from "framer-motion"
+import { varianstButton } from '../../../motion'
+
+
+
 
 
 const HomePage = () => {
 
 
   const [photos, setPhotos, photoSelected, setPhotoSelected] = usePhotos()
-  const [quantityProduct, handleQuantity,setQuantityProduct] = useQuantity()
+  const [quantityProduct, handleQuantity, setQuantityProduct] = useQuantity()
   const { state, actions } = useContext(AppContext)
-  
+
   const priceResult = useMemo(() => {
     return ((state.productView.priceSell * state.productView.priceOff * 100) / 100)
   }, [state.productView])
@@ -27,7 +32,7 @@ const HomePage = () => {
       price: priceResult,
       quantity: quantityProduct,
       imgProduct: photoSelected.small,
-      id:uuidv4()
+      id: uuidv4()
     })
     setQuantityProduct(0)
   }
@@ -35,7 +40,7 @@ const HomePage = () => {
   return (
     <>
       <NavbarComponent />
-      <section className='h-full flex flex-col sm:flex-row sm:h-5/6 p-4 box-border gap-6 w-full'>
+      <motion.section className='h-full flex flex-col sm:flex-row sm:h-5/6 p-4 box-border gap-6 w-full'>
         <section className='flex-1 items-center flex-col p-4 pt-8 box-border flex justify-center space-y-6'>
           <img src={photoSelected.large} alt="product" className='w-2/3 h-2/3 rounded-lg' />
           <section className='flex space-x-7'>
@@ -65,16 +70,20 @@ const HomePage = () => {
           </section>
           <section className='w-full flex items-start space-x-2 mt-4'>
             <section className='bg-slate-50 rounded-lg p-2 w-1/3 flex items-center justify-around'>
-              <button onClick={() => { handleQuantity(-1) }} className='text-primary-500 text-xl'>-</button><span>{quantityProduct}</span><button onClick={() => { handleQuantity(1) }} className='text-primary-500 text-xl'>+</button>
+              <button onClick={() => { handleQuantity(-1) }} className='text-primary-500 text-xl'>-</button>
+              <span>{quantityProduct}</span>
+              <button onClick={() => { handleQuantity(1) }} className='text-primary-500 text-xl'>+</button>
             </section>
             <section className='w-1/2'>
-              <button className='text-white font-bold capitalize bg-primary-500 p-2 w-full rounded-lg text-lg' onClick={() => {
-                handleAdd()
-              }}>add to card</button>
+              <motion.button variants={varianstButton}
+                whileHover="hover"
+                whileTap="tap" className='text-white font-bold capitalize bg-primary-500 p-2 w-full rounded-lg text-lg' onClick={() => {
+                  handleAdd()
+                }}>add to card</motion.button>
             </section>
           </section>
         </section>
-      </section>
+      </motion.section>
     </>
   )
 }

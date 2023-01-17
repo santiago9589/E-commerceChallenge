@@ -1,10 +1,15 @@
 import HomePage from "./pages/home/home.page"
+import { motion} from "framer-motion"
+import { variantsApp } from "../motion"
+
+
+
 function App() {
 
   return (
-    <main className="container mx-auto h-screen relative">
+    <motion.main variants={variantsApp}  initial="initial" animate="animate" className="container mx-auto h-screen relative">
       <HomePage />
-    </main>
+    </motion.main>
   )
 }
 
