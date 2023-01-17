@@ -1,6 +1,7 @@
 import HomePage from "./pages/home/home.page"
 import { motion} from "framer-motion"
 import { variantsApp } from "../motion"
+import React from "react"
 
 
 

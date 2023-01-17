@@ -1,5 +1,4 @@
 import React from 'react'
-import { Product } from '../../types/Product'
 import {motion} from "framer-motion"
 import { varianstButton } from '../../motion'
 

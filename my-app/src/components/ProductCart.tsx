@@ -20,7 +20,7 @@ const ProductCart = ({ product }: props) => {
                     <h2 className='text-lg text-slate-400 capitalize'>{product.name}</h2>
                     <section>{`${(product.price.toLocaleString("es-AR", { style: "currency", currency: "ARS" }))} x ${product.quantity}Und = ${(product.price * product.quantity).toLocaleString("es-AR", { style: "currency", currency: "ARS" })}`}</section>
                 </section>
-                <motion.img variants={varianstButton} whileHover="hover" whileTap="tap" onClick={() => {
+                <motion.img  variants={varianstButton} whileHover="hover" whileTap="tap" onClick={() => {
                     actions.deleteCart(product)
                 }} className="h-4 w-4" src={deleteSvg} alt="delete.icon" />
             </motion.article>
