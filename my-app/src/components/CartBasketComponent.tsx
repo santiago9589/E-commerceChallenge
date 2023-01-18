@@ -8,8 +8,6 @@ const CartBasketComponent = () => {
 
   const { state, actions } = useContext(AppContext)
 
-
-
   return (
     <aside className='absolute top-14 right-0 '>
       <article className='h-48 w-96 p-2 bg-white border-2 shadow-lg shadow-slate-300 overflow-y-auto'>

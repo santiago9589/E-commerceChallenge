@@ -52,7 +52,7 @@ afterEach(() => {
     cleanup()
 })
 
-describe("ButtonComponent", () => {
+describe("ProductCart", () => {
     it("reenderiza correctamente", () => {
         expect(screen.getByText(/test1/i)).toBeInTheDocument()
     })
