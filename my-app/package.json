@@ -38,6 +38,7 @@
     "vite": "^4.0.0"
   },
   "jest": {
+    "resetMocks": true,
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "<rootDir>/jest-setup.ts"
@@ -52,5 +53,6 @@
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     }
+    
   }
 }

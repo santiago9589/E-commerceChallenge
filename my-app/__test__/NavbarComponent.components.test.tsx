@@ -1,6 +1,5 @@
-import { screen, render, cleanup } from "@testing-library/react"
+import { screen, render, cleanup, fireEvent, waitFor } from "@testing-library/react"
 import React from "react";
-import { useShow } from "../src/hooks/useShow";
 import { ContextProps } from "../context/AppContext";
 import { FakeProvider } from "./ProviderContainerTest";
 import NavbarComponent from "../src/components/NavbarComponent.components"
@@ -30,14 +29,14 @@ const PropsContext: ContextProps = {
         setCart: jest.fn()
     }
 }
-
+ 
 jest.mock("../src/hooks/useBarItems", () => ({
-    useBar: () => (["Collections", () => { }, ["Collections", "Man"]]),
+    useBar: ():[string,()=>void,string[]] => (["Collections", () => { }, ["Collections", "Man"]]),
 }));
 
-// jest.mock("../src/hooks/useShow", () => ({
-//     useShow: () => ([true, () => { }]),
-// }));
+jest.mock("../src/hooks/useShow", () => ({
+    useShow: ():[boolean,()=>void] => ([false,()=>{}]),
+}));
 
 
 beforeEach(() => {
@@ -55,6 +54,17 @@ describe("Navbar Component", () => {
         expect(screen.getByText(/Collections/i)).toBeInTheDocument()
         expect(screen.getByText(/Man/i)).toBeInTheDocument()
         expect(screen.getByText(/1/i)).toBeInTheDocument()
-
     })
+
+    it("cuando le doy click al carrito muestra el la ventana del carro", async() => {
+
+        const cartElement = screen.getByRole("img", { name: "cart" })
+        fireEvent.click(cartElement)    
+        await waitFor(()=>{
+            expect(screen.getByTestId("aside-cart")).toBeInTheDocument()
+        })
+        
+    })
+
+
 })

@@ -38,7 +38,7 @@ const NavbarComponent = () => {
                         state.cart.length ? (<motion.p initial="initial" animate="animate" variants={variants} className="absolute top-[2px] right-[70px] bg-primary-500 w-5 text-center rounded-lg text-white">{state.cart.length}</motion.p>) : (null)
                     }
 
-                    <motion.img variants={variantsCart} whileHover="hover" onClick={() => { handleShow() }} src={cart} alt="cart" className='w-6 h-5 mr-2 sm:mr-8' />
+                    <motion.img   variants={variantsCart} whileHover="hover" onClick={() => { handleShow() }} src={cart} alt="cart" className='w-6 h-5 mr-2 sm:mr-8' />
                 </section>
                 <motion.img variants={variantsImage} whileHover="hover" src={avatar} alt="avatar" className='w-10 h-10' />
             </NavbarContainerComponents>
@@ -55,4 +55,3 @@ const NavbarComponent = () => {
 
 export default NavbarComponent
 
-// const [isShow,handleShow] = useShow()
